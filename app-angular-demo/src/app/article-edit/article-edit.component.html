@@ -1,0 +1,19 @@
+<form class="ui large form segment" *ngIf="article">
+  <h3 class="ui header">Add a Link</h3>
+
+  <div class="field">
+    <label for="title">Title:</label>
+    <input name="title" [(ngModel)]="article.title">  <!-- changed -->
+  </div>
+  <div class="field">
+    <label for="link">Link:</label>
+    <input name="link" [(ngModel)]="article.link"> <!-- changed -->
+  </div>
+
+  <!-- added this button -->
+  <button class="ui button" type="button" (click)="edit()"  
+          class="ui positive right floated button">  
+    Save 
+  </button>  
+
+</form>
