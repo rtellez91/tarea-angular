@@ -30,21 +30,4 @@ fdescribe('ArticlesService', () => {
     expect(req.request.method).toBe("GET");
     req.flush(expectedList);
   });
-
-  it('editArticle should update',async()=>{
-    //Arrange
-    this.service = TestBed.get(ArticlesService);
-    this.httpMock= TestBed.get(HttpTestingController);
-  
-    // //Act
-    this.service.editArticleRemote(1 , 'articleUpdated', 'https://article.com/updated').subscribe((res: any) => {
-      expect(res.title).toContain('testtestUpdated');
-      expect(res.link).toContain('https://testtest.com/updated');
-    });
-    //Assert
-     const req= this.httpMock.expectOne('http://localhost:3000/articles/1');
-     expect(req.request.method).toBe('PATCH');
-     this.httpMock.verify();
-  });
-
 });

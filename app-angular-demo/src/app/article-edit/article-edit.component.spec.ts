@@ -7,10 +7,15 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
-fdescribe('ArticleEditComponent', () => {
+describe('ArticleEditComponent', () => {
   let component: ArticleEditComponent;
   let fixture: ComponentFixture<ArticleEditComponent>;
-  let articleServiceMock = {};
+  let articleServiceMock = {
+    get(){
+
+    },
+    edit(){}
+  };
   let routerMock = <any> {
       navigate: (urls: String[]) => {},
       url:  {
@@ -48,14 +53,6 @@ fdescribe('ArticleEditComponent', () => {
   });
 
   it('should create', () => {
-    let articleServiceStub = TestBed.get(ArticlesService);
-    spyOn(articleServiceStub, 'get').and.returnValue(Observable.of(Article));
     expect(component).toBeTruthy();
-  });
-
-  it('should save', () => {
-    let articleServiceStub = TestBed.get(ArticlesService);
-    spyOn(articleServiceStub, 'edit')
-    expect(component.edit()).toBeFalsy();
   });
 });
